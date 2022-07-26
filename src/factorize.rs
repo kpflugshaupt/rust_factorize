@@ -15,15 +15,14 @@ fn int_sqrt(nr: Number) -> Number {
 fn factorize(number: Number) -> Vec<Number> {
     let mut remainder = number;
     let mut factors: Vec<Number> = Vec::with_capacity(FACTOR_SLOTS);
-    let _factor_limit = int_sqrt(number.clone()) + 1;
+    let factor_limit = int_sqrt(number.clone()) + 1;
     // extract 2, then the rest, skipping multiples of 2
     while remainder % 2 == 0 {
         factors.push(2);
         remainder /= 2;
     }
     let mut factor: Number = 3;
-    while factor <= number {
-        /*factor_limit && remainder > 1 {*/
+    while factor <= factor_limit && remainder > 1 {
         while remainder % factor == 0 {
             factors.push(factor);
             remainder /= factor;
@@ -42,7 +41,7 @@ fn factorize(number: Number) -> Vec<Number> {
 /// # Examples
 ///
 /// ```
-/// use factorize::prime_factors;
+/// use rust_factorize::prime_factors;
 ///
 /// let fact = prime_factors(0);
 /// assert_eq!(fact, vec![]);
@@ -89,25 +88,4 @@ mod tests {
             vec![2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5]
         );
     }
-
-    // #[bench]
-    // fn bench_small_num(b: &mut Bencher) {
-    //     b.iter(|| {
-    //         let _ = prime_factors(10_000);
-    //     })
-    // }
-    //
-    // #[bench]
-    // fn bench_big_hard_num(b: &mut Bencher) {
-    //     b.iter(|| {
-    //         let _ = prime_factors((2_u64.pow(48) - 3) as Number);
-    //     })
-    // }
-    //
-    // #[bench]
-    // fn bench_big_easy_num(b: &mut Bencher) {
-    //     b.iter(|| {
-    //         let _ = prime_factors(2_u64.pow(48) as Number);
-    //     })
-    // }
 }

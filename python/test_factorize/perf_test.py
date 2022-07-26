@@ -11,11 +11,10 @@ def prime_factors(n: int) -> list[int]:
         factors.append(2)
         n //= 2
     while i <= max_factor:
-        if n % i:
-            i += 2
-        else:
+        while not n % i:
             n //= i
             factors.append(i)
+        i += 2
     if n > 1:
         factors.append(n)
     return factors

@@ -41,15 +41,15 @@ fn factorize(number: Number) -> Vec<Number> {
 /// # Examples
 ///
 /// ```
-/// use rust_factorize::prime_factors;
+/// use rust_factorize::factorize;
 ///
-/// let fact = prime_factors(0);
+/// let fact = factorize::prime_factors(0);
 /// assert_eq!(fact, vec![]);
 ///
-/// let fact = prime_factors(12);
+/// let fact = factorize::prime_factors(12);
 /// assert_eq!(fact, vec![2, 2, 3]);
 ///
-/// let fact = prime_factors(1_000_000_000);
+/// let fact = factorize::prime_factors(1_000_000_000);
 /// assert_eq!(fact, vec![2, 2, 2, 2, 2, 2, 2, 2, 2, 5, 5, 5, 5, 5, 5, 5, 5, 5]);
 /// ```
 pub fn prime_factors(number: Number) -> Vec<Number> {

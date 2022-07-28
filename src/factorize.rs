@@ -7,9 +7,7 @@ const FACTOR_SLOTS: usize = 20;
 pub type Number = u64;
 
 /// Calculate floor of square root
-fn int_sqrt(nr: Number) -> Number {
-    unsafe { (nr as f64).sqrt().to_int_unchecked() }
-}
+fn int_sqrt(nr: Number) -> Number { (nr as f64).sqrt() as Number }
 
 /// Split `number` >= 4 into prime factors by optimized "direct testing"
 fn factorize(number: Number) -> Vec<Number> {
@@ -36,7 +34,7 @@ fn factorize(number: Number) -> Vec<Number> {
     factors
 }
 
-/// Calculate the prime factors making up a number, sorted by size.
+/// Calculate the prime factors making up a positive number, sorted by size.
 ///
 /// # Examples
 ///

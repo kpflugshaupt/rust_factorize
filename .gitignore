@@ -1,2 +1,3 @@
 /target
 /Cargo.lock
+python/rust_factorize/rust_factorize.cp310-win_amd64.pyd
